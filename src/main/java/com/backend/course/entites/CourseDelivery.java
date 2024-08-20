@@ -1,5 +1,7 @@
 package com.backend.course.entites;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,8 +23,8 @@ public class CourseDelivery {
 
     private int year;
     private int semester;
-    private String cId;
 
     @ManyToOne
+    @JsonBackReference
     private Course course;
 }
