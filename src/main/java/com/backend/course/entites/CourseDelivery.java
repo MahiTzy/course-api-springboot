@@ -1,6 +1,6 @@
 package com.backend.course.entites;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +25,6 @@ public class CourseDelivery {
     private int semester;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonIgnoreProperties("deliveries")
     private Course course;
 }

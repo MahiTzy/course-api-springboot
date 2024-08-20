@@ -2,6 +2,8 @@ package com.backend.course.services;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.backend.course.entites.CourseDelivery;
 
 public interface CourseDeliveryService {
@@ -12,6 +14,7 @@ public interface CourseDeliveryService {
 
     public CourseDelivery getCourseDeliveryByYearSemesterAndCourseId(int year, int semester, Long courseId);
 
+    @Transactional
     public void deleteCourseDeliveryByYearSemesterAndCourseId(int year, int semester, Long courseId);
 
 }
