@@ -21,7 +21,7 @@ public class CourseDelivery {
 
     private int year;
     private int semester;
-    private String courseId;
+    private String cId;
 
     @ManyToOne
     private Course course;
