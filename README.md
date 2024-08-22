@@ -48,9 +48,11 @@ This is a backend application built with Java Spring Boot that provides REST API
   - Request body:
     ```json
     {
-      "courseId": 23,
       "year": 2023,
       "semester": 1
+      "course":{
+        "id": 23
+      }
     }
     ```
 
