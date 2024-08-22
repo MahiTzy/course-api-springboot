@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: devmahi/frontend:courseui
+    ports:
+      - "5173:5173" 
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    image: devmahi/java:courseapp
+    ports:
+      - "8080:8080" 
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/course-api
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_JPA_DATABASE_PlATFORM: org.hibernate.dialect.PostgreSQLDialect
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  db:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_DB: course-api
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
