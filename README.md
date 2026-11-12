@@ -1,108 +1,47 @@
-### Backend Application (Java Spring Boot)
+# Courses API — Spring Boot Backend
 
-#### `README.md` for Backend
+A REST API backend for managing courses and course instances.
 
-# Courses API Backend
-
-This is a backend application built with Java Spring Boot that provides REST APIs for managing courses and course instances.
+## Overview
+This Spring Boot service provides backend operations for course-related data. The implemented endpoints and validation behavior are defined by the controllers and request/response models in the source.
 
 ## Features
+- Create course records
+- Retrieve course information
+- Manage course instances
+- Expose REST endpoints for the frontend application
 
-- **Create a new course**
-- **List all courses**
-- **View detailed information about a specific course**
-- **Delete a specific course**
-- **Create a new instance of a course delivery**
-- **List course delivery instances by year and semester**
-- **View details of a specific course instance**
-- **Delete a specific course instance**
+## Related Project
+- [Courses API React Frontend](https://github.com/MahiTzy/course-ui-react)
 
-## API Endpoints
+## Technology
+- Java
+- Spring Boot
+- REST APIs
+- Persistence and database dependencies defined by the project build
 
-### Courses
-
-- **POST /api/courses**
-  - Create a new course
-  - Request body: 
-    ```json
-    {
-      "title": "Introduction to Computer Architecture",
-      "code": "CS 102",
-      "description": "This course provides a basic introduction to the architecture and algorithms of computer systems"
-    }
-    ```
-
-- **GET /api/courses**
-  - List all courses
-
-- **GET /api/courses/{id}**
-  - View detailed information about a course with ID `{id}`
-
-- **DELETE /api/courses/{id}**
-  - Delete a course with ID `{id}`
-
-### Instances
-
-- **POST /api/instances**
-  - Create a new instance of a course delivery
-  - Request body:
-    ```json
-    {
-      "year": 2023,
-      "semester": 1
-      "course":{
-        "id": 23
-      }
-    }
-    ```
-
-- **GET /api/instances/{year}/{semester}**
-  - List courses delivered in year `{year}` and semester `{semester}`
-
-- **GET /api/instances/{year}/{semester}/{courseId}**
-  - View detailed information about an instance of a course with ID `{courseId}`, delivered in year `{year}` and semester `{semester}`
-
-- **DELETE /api/instances/{year}/{semester}/{courseId}**
-  - Delete an instance of a course with ID `{courseId}`, delivered in year `{year}` and semester `{semester}`
-
-## Installation
-
-1. Clone the repository:
+## Getting Started
+1. Install the JDK version required by the build configuration.
+2. Clone the repository:
    ```bash
    git clone https://github.com/MahiTzy/course-api-springboot.git
-   ```
-
-2. Navigate to the project directory:
-   ```bash
    cd course-api-springboot
    ```
-
-3. Build the project using Maven:
+3. Configure the datasource and application properties.
+4. Run with the Maven wrapper if included:
    ```bash
-   mvn clean install
+   ./mvnw spring-boot:run
    ```
+   Otherwise use the build tool declared by the project.
 
-4. Run the application:
-   ```bash
-   mvn spring-boot:run
-   ```
+## API Reference
+Review controller mappings and DTOs for the exact endpoint paths, methods, and payload schemas. Configure the frontend with the backend's local base URL.
 
-## Docker
+## Testing
+Run the test suite using the build tool configured in the repository.
 
-1. Build the Docker image:
-   ```bash
-   docker build -t yourdockerhubusername/courses-api-backend .
-   ```
+## Security
+Do not commit database credentials, tokens, or production configuration.
 
-2. Push the Docker image to DockerHub:
-   ```bash
-   docker push yourdockerhubusername/courses-api-backend
-   ```
-
-## Dockerfile
-
-The Dockerfile is located in the root directory of this repository.
-
-## Docker-Compose
-
-Refer to the `docker-compose.yaml` in the this repository to set up the full application stack.
+## License
+No license terms are specified here. Refer to the repository's LICENSE file, if present, before reuse.
